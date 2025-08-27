@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 export default function App() {
   const [tasks, setTasks] = useState([]); //estado para armazenar a lista de tarefas
   const [newtask, setNewTask] = useState(""); //estado para o texto da nova tarefa
+
 //nn depende de nada pq ele so faz o carregamento
 useEffect(()=>{
 const loadTasks = async () => {
@@ -101,18 +102,40 @@ loadTasks();
         <Text>🗑️</Text>
       </TouchableOpacity>
     </View>
+    
   );
+  const TrocaTema = ({ Tema }) => (
+    <View style={styles.tema} key={Tema.id}>
+      <TouchableOpacity
+        onPress={() => toggleTaskCompleted(Tema.id)}
+        style={styles.TrocandoConatiner}
+      >
+        <Text
+          style={[styles.taskText, item.completed && styles.completedTaskItem]}
+        >
+          {Tema.text}
+        </Text>
+      </TouchableOpacity>
+
+     
+    </View>
+    
+  );
+
+
+
   return (
     //cabeçario
-    <View style={styles.container}>
+    <View style={[styles.container , styles.tema]}>
       <View style={styles.topBar}>
-        <Text style={styles.topBarTitle}>Minhas Tarefas</Text>
-        <TouchableOpacity>
-          <Text>🌛</Text>
-        </TouchableOpacity>
+        <Text style={styles.topBarTitle} >Minhas Tarefas</Text>
+        <TouchableOpacity onPress={() => TrocaTema(Tema.id)}>
+      <Text >🌛</Text>
+      </TouchableOpacity>
+  
       </View>
       {/* Local onde o usuario insere as tarefas */}
-      <View style={styles.card}>
+      <View style={[styles.card , styles.TrocandoConatiner]}>
         <TextInput
           style={styles.input}
           placeholder="Adicionar nova tarefa..."
