@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 export default function App() {
   const [tasks, setTasks] = useState([]); //estado para armazenar a lista de tarefas
   const [newtask, setNewTask] = useState(""); //estado para o texto da nova tarefa
+  const [dark, setDark] = useState ()
 
 //nn depende de nada pq ele so faz o carregamento
 useEffect(()=>{
@@ -102,36 +103,19 @@ loadTasks();
         <Text>🗑️</Text>
       </TouchableOpacity>
     </View>
-    
-  );
-  const TrocaTema = ({ Tema }) => (
-    <View style={styles.tema} key={Tema.id}>
-      <TouchableOpacity
-        onPress={() => toggleTaskCompleted(Tema.id)}
-        style={styles.TrocandoConatiner}
-      >
-        <Text
-          style={[styles.taskText, item.completed && styles.completedTaskItem]}
-        >
-          {Tema.text}
-        </Text>
-      </TouchableOpacity>
 
-     
-    </View>
-    
   );
 
 
 
   return (
     //cabeçario
-    <View style={[styles.container , styles.tema]}>
-      <View style={styles.topBar}>
-        <Text style={styles.topBarTitle} >Minhas Tarefas</Text>
-        <TouchableOpacity onPress={() => TrocaTema(Tema.id)}>
-      <Text >🌛</Text>
-      </TouchableOpacity>
+    <View style={[styles.container , dark ? styles.darkcontainer : styles.container]}>
+      <View style={[styles.topBar, , dark ? styles.topBarDark : styles.topBar ]}>
+        <Text style={[styles.topBarTitle , dark ? styles.topTitleDark : styles.topBar]} >Minhas Tarefas</Text>
+     
+      <Text >{dark ? "🌙"  : "☀️"}</Text>
+      <TouchableOpacity onPress={()=> setDark (!dark)} style={styles.buttomTroca}></TouchableOpacity>
   
       </View>
       {/* Local onde o usuario insere as tarefas */}
