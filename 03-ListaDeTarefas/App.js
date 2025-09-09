@@ -114,7 +114,7 @@ loadTasks();
       <View style={[styles.topBar, , dark ? styles.topBarDark : styles.topBar ]}>
         <Text style={[styles.topBarTitle , dark ? styles.topTitleDark : styles.topBar]} >Minhas Tarefas</Text>
      
-      <Text >{dark ? "🌙"  : "☀️"}</Text>
+      <Text >{dark ? "☀️"  : "🌙"}</Text>
       <TouchableOpacity onPress={()=> setDark (!dark)} style={styles.buttomTroca}></TouchableOpacity>
   
       </View>
