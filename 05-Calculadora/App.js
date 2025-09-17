@@ -8,7 +8,9 @@ const [valor, setValor] = useState("");
 const [result, setResult] = useState ("")
 const [resultado, setResultado] = useState(false);
 const handleIncrement = () => {
- const setResultado = valor + result
+  setResultado( valor + result)
+  
+
 };
 
   return (
@@ -29,6 +31,8 @@ const handleIncrement = () => {
         </View>
         </View>
 
+       
+
 <View style={styles.buttonGroup}>
           <TouchableOpacity style={styles.button}
          onPress={handleIncrement}
@@ -48,9 +52,10 @@ const handleIncrement = () => {
           
                      {resultado && (
         <View style={styles.card}>
-          <Text style={styles.finalResultText}>
-            <Text style={{ fontWeight: "bold" }}>$</Text>
-            {setResultado} Dólares
+          <Text style={styles.finalResultText}
+          
+          >
+            {resultado} 
           </Text>
 
        
