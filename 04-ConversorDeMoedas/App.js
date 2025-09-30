@@ -1,4 +1,4 @@
-//Tema automatico 
+//Tema automatico
 
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
@@ -13,30 +13,29 @@ import {
 } from "react-native";
 
 const lightTheme = {
-  background:"#f0f0f0",   //fundo principal
-  card:"#ffffff", //cor dos cards
-  text:"#212121", //cor principal do texto
-  label:"#555", //cor dos labels (ex: rótulos de input)
-  border:"#ccc", //cor de bordas
-  buttonPrimary:"#007bff", //
-  buttonDanger:"#dc3545",
-  result:"#007bff",
-  infoBg:"#ffffff",
-  infoBorder:"#eee",
+  background: "#f0f0f0", //fundo principal
+  card: "#ffffff", //cor dos cards
+  text: "#212121", //cor principal do texto
+  label: "#555", //cor dos labels (ex: rótulos de input)
+  border: "#ccc", //cor de bordas
+  buttonPrimary: "#007bff", //
+  buttonDanger: "#dc3545",
+  result: "#007bff",
+  infoBg: "#ffffff",
+  infoBorder: "#eee",
 };
 
 const darkTheme = {
-  background:"#121212",
-  card:"#1e1e1e",
-  text:"#f5f5f5",
-  label:"#aaaaaa",
-  border:"#444",
-  buttonPrimary:"#3399ff",
-  buttonDanger:"#ff4d4d",
-  result:"#66ccff",
-  infoBg:"#1e1e1e",
-  infoBorder:"#333",
-
+  background: "#121212",
+  card: "#1e1e1e",
+  text: "#f5f5f5",
+  label: "#aaaaaa",
+  border: "#444",
+  buttonPrimary: "#3399ff",
+  buttonDanger: "#ff4d4d",
+  result: "#66ccff",
+  infoBg: "#1e1e1e",
+  infoBorder: "#333",
 };
 
 // -----Cotação fixas no código -------
@@ -48,8 +47,7 @@ const COTACAO_EURO = 6.37; //1 euro = 6.37 Reais
 export default function App() {
   const scheme = useColorScheme();
   const theme = scheme === "dark" ? darkTheme : lightTheme;
-const styles = creatStyles(theme)
-
+  const styles = creatStyles(theme);
 
   const [valorEmReais, setValorEmReais] = useState("");
   const [resultadoDolar, setResultadoDolar] = useState(0);
@@ -83,7 +81,7 @@ const styles = creatStyles(theme)
     setResultadoDolar(dolarConvertido.toFixed(2));
     setResultadoEuro(euroConvertido.toFixed(2));
     setShowResults(true);
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -104,8 +102,7 @@ const styles = creatStyles(theme)
         </View>
 
         <View style={styles.buttonGroup}>
-          <TouchableOpacity style={styles.button}
-          onPress={convertCurrency}>
+          <TouchableOpacity style={styles.button} onPress={convertCurrency}>
             <Text style={styles.buttonText}>Converter</Text>
           </TouchableOpacity>
 
@@ -152,115 +149,116 @@ const styles = creatStyles(theme)
   );
 }
 
-const creatStyles = (theme) => StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.background,
-    padding: 20, //padding direto no container principal
-    justifyContent: "center", //centraliza o conteúdo verticalmente
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: theme.text,
-    textAlign: "center",
-    marginBottom: 30,
-  },
-  card: {
-    alignItems:"cnter",
-    justifyContent:"center",
-    backgroundColor: theme.card,
-    borderRadius: 10,
-    padding: 20,
-    marginBottom: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  inputContainer: {
-    marginBottom: 15,
-  },
-  inputLabel: {
-    fontSize: 16,
-    color: theme.text,
-    marginBottom: 5,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: theme.border,
-    borderRadius: 8,
-    padding: 12,
-    fontSize: 18,
-    textAlign: "right",
-    color:theme.text,
-  },
-  buttonGroup: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 10,
-  },
-  button: {
-    backgroundColor: theme.buttonPrimary,
-    padding: 12,
-    borderRadius: 8,
-    alignItems: "center",
-    flex: 1,
-    marginHorizontal: 5,
-  },
-  clearButton: {
-    backgroundColor: theme.buttonDanger,
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  resultTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 10,
-    color: theme.text,
-  },
-  converterValorText: {
-    alignItems:"center",
-    fontSize: 16,
-    textAlign: "center",
-    marginBottom: 5,
-    color: theme.label,
-  },
-  finalResultText: {
-    fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 10,
-    color: theme.result,
-  },
-  cotacaoInfoConatiner: {
-    marginTop: 20,
-    padding: 15,
-    backgroundColor: theme.infoBg,
-    borderRadius: 10,
-    borderTopWidth: 1,
-    borderTopColor: theme.infoBorder,
-    alignItems: "center",
-    marginBottom: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 2,
-    elevation: 3,
-  },
-  ConatinerInfoTitle: {
-    fontSize: 15,
-    fontWeight: "bold",
-    marginBottom: 5,
-    color: theme.text,
-  },
-  ConatinerInfoText: {
-    fontSize: 14,
-    color: theme.label,
-  },
-});
+const creatStyles = (theme) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.background,
+      padding: 20, //padding direto no container principal
+      justifyContent: "center", //centraliza o conteúdo verticalmente
+    },
+    title: {
+      fontSize: 28,
+      fontWeight: "bold",
+      color: theme.text,
+      textAlign: "center",
+      marginBottom: 30,
+    },
+    card: {
+      alignItems: "cnter",
+      justifyContent: "center",
+      backgroundColor: theme.card,
+      borderRadius: 10,
+      padding: 20,
+      marginBottom: 20,
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 5,
+    },
+    inputContainer: {
+      marginBottom: 15,
+    },
+    inputLabel: {
+      fontSize: 16,
+      color: theme.text,
+      marginBottom: 5,
+    },
+    input: {
+      borderWidth: 1,
+      borderColor: theme.border,
+      borderRadius: 8,
+      padding: 12,
+      fontSize: 18,
+      textAlign: "right",
+      color: theme.text,
+    },
+    buttonGroup: {
+      flexDirection: "row",
+      justifyContent: "space-around",
+      marginTop: 10,
+    },
+    button: {
+      backgroundColor: theme.buttonPrimary,
+      padding: 12,
+      borderRadius: 8,
+      alignItems: "center",
+      flex: 1,
+      marginHorizontal: 5,
+    },
+    clearButton: {
+      backgroundColor: theme.buttonDanger,
+    },
+    buttonText: {
+      color: "#fff",
+      fontSize: 16,
+      fontWeight: "bold",
+    },
+    resultTitle: {
+      fontSize: 16,
+      fontWeight: "bold",
+      textAlign: "center",
+      marginBottom: 10,
+      color: theme.text,
+    },
+    converterValorText: {
+      alignItems: "center",
+      fontSize: 16,
+      textAlign: "center",
+      marginBottom: 5,
+      color: theme.label,
+    },
+    finalResultText: {
+      fontSize: 22,
+      fontWeight: "bold",
+      textAlign: "center",
+      marginTop: 10,
+      color: theme.result,
+    },
+    cotacaoInfoConatiner: {
+      marginTop: 20,
+      padding: 15,
+      backgroundColor: theme.infoBg,
+      borderRadius: 10,
+      borderTopWidth: 1,
+      borderTopColor: theme.infoBorder,
+      alignItems: "center",
+      marginBottom: 20,
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.08,
+      shadowRadius: 2,
+      elevation: 3,
+    },
+    ConatinerInfoTitle: {
+      fontSize: 15,
+      fontWeight: "bold",
+      marginBottom: 5,
+      color: theme.text,
+    },
+    ConatinerInfoText: {
+      fontSize: 14,
+      color: theme.label,
+    },
+  });
